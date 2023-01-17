@@ -48,7 +48,7 @@ class producto2{
       }
 }
 
-gustos=['chocolate', 'vainilla','granizado','mascarpone','frutilla', 'dulce de leche', 'frutos del bosque', 'tiramisu'];
+const gustos=['chocolate', 'vainilla','granizado','mascarpone','frutilla', 'dulce de leche', 'frutos del bosque', 'tiramisu'];
 elegirGusto=(gustos)=>{
       prompt('1.chocolate, 2.vainilla, 3.granizado, 4.mascarpone, 5.frutilla, 6.dulce de leche, 7.frutos del bosque, 8.tiramisu')
       
