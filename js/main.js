@@ -31,7 +31,7 @@ class compra {
       constructor(entrada) {
         this.productoComprado = entrada.productoComprado;
         this.fecha = entrada.fecha;
-        this.precioDelProducto=entrada.productos.findIndex((Element) => precio) }
+        this.precioDelProducto=entrada.productos.findIndex((Element) => productos) }
 }
 
 class item{
@@ -58,7 +58,7 @@ const productos = [
 
        {heladosDeAgua:[(heladoDeAguaDeNaranja=new item('helado de agua de naranja',200),
                         heladoDeAguaDeLimon=new item('helado de agua de limon',200),
-                        heladoDeAguaDeFrutilla=new item('helado de agua de frutilla'=200))]}
+                        heladoDeAguaDeFrutilla=new item('helado de agua de frutilla',200))]}
 ]
 const co=(productoIngresado,productos)=>{
       return productos.find(productos => productos.some().toLocaleLowerCase===productoIngresado);
@@ -68,13 +68,9 @@ const co=(productoIngresado,productos)=>{
 
 
 
-
-
-
-do{compraIgresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.')
-const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Date(), precioDelProducto:productos.findIndex((Element) => precio)  });
-if (palabraIngresada !== 'ESC') {
- switch(compraIgresada){
+do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.');
+productoNoValido=compraIngresada!=='1'||'2'||'3'
+ switch(compraIngresada){
       case '1':
             compraIngresadaA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
             switch(compraIngresadaA){
@@ -149,7 +145,5 @@ if (palabraIngresada !== 'ESC') {
             break;
       default:
             alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.');}
-}else(alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.'))
 
-
-}while(compraIngresadaB!== 'FIN');
+}while(compraIngresada!== 'FIN');
