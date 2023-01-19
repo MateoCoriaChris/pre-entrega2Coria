@@ -25,8 +25,19 @@ pago=(precioDelProducto)=>{
 }
 
 
+const carritoDeCompra = [];
 
+class compra {
+      constructor(entrada) {
+        this.productoComprado = entrada.productoComprado;
+        this.fecha = entrada.fecha;
+        this.precioDelProducto=entrada.productos.findIndex((Element) => precio) }
+}
 
+class item{
+      constructor(nombreDelProducto, precio){
+      this.nombreDelProducto= nombreDelProducto;
+      this.precio=parseInt(precio);}}
 
 const gustos=['chocolate', 'vainilla','granizado','mascarpone','frutilla', 'dulce de leche', 'frutos del bosque', 'tiramisu'];
 elegirGusto=(gustos)=>{
@@ -35,42 +46,59 @@ elegirGusto=(gustos)=>{
 }
 
 const productos = [
-       {'helados':[('Cucurucho Simple','Cucurucho Doble','Helado de 1/4kg','Helado de 1/2kg', 'Helado de 1kg' )]},
-       {'pasteles':[('pastel cheesecake','pastel selva negra','pastel de frutilla')]},
-       {'heladosDeAgua':[('helado de agua de naranja','helado de agua de limon','helado de agua de frutilla')]}
+       {helados:[(cucuruchoSimple=new item('Cucurucho Simple',300),
+                  cucuruchoDoble=new item('Cucurucho Doble',380), 
+                  heladoDeUnCuarto=new item('Helado de 1/4kg',420),
+                  heladoDeMedio=new item('Helado de 1/2kg',780),
+                  heladoDeUnKilo=new item('Helado de 1kg',1260) )]},
+
+       {pasteles:[(pastelCheesecake=new item('pastel cheesecake',2500),
+                   pastelSelvaNegra=new item('pastel selva negra',2550),
+                   pastelDeFrutilla=new item('pastel de frutilla',2450))]},
+
+       {heladosDeAgua:[(heladoDeAguaDeNaranja=new item('helado de agua de naranja',200),
+                        heladoDeAguaDeLimon=new item('helado de agua de limon',200),
+                        heladoDeAguaDeFrutilla=new item('helado de agua de frutilla'=200))]}
 ]
-const A=(productoIngresado,productos)=>{
-      return productos.some((productos)=>productos===productoIngresado);
+const co=(productoIngresado,productos)=>{
+      return productos.find(productos => productos.some().toLocaleLowerCase===productoIngresado);
 }
 
-do{compra=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.')
-compraNoValida=compra!== productos.some()
-if(compra!==productos.some()){
-      alert('El producto ingresado no existe. Ingrese otro tipode producto o ingrese "FIN" para salir.')
-}else{switch(producto){
-      case 'helados':
-            productoIngresadoA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
-            switch(productoIngresadoA){
-                  case 'cucurucho simple':
+
+
+
+
+
+
+
+do{compraIgresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.')
+const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Date(), precioDelProducto:productos.findIndex((Element) => precio)  });
+if (palabraIngresada !== 'ESC') {
+ switch(compraIgresada){
+      case '1':
+            compraIngresadaA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
+            switch(compraIngresadaA){
+                  case '1':
                   cucuruchoSimple=alert('el cucurucho simple sale 300$¿Que sabor va a querer en su cucurucho simple?');
+                  elegirGusto(gustos);
                   pago(300);
                   break;
-                  case 'cucurucho doble':
+                  case '2':
                         cucuruchoDoble=alert('el cucrucho doble sale 380$¿Que sabor va a querer en su cucurucho doble?');
                         elegirGusto(gustos);
                         pago(380);
                         break;
-                  case 'helado de 1/4kg':
+                  case '3':
                         heladoDeUnCuarto=alert('el helado de 1/4kg sale 420$¿Que sabor va a querer en su Helado de 1/4?');
                         elegirGusto(gustos);
                         pago(420);
                         break;
-                  case 'helado de 1/2kg':
+                  case '4':
                         heladoDeMedio=alert('el helado de 1/2kg sale 780$¿Que sabor va a querer en su Helado de 1/2kg?');
                         elegirGusto(gustos);
                         pago(780);
                         break;
-                  case 'helado de 1kg':
+                  case '5':
                         heladoDeUnKilo=prompt('el helado de 1kg sale 1260$¿Que sabor va a querer en su helado de 1kg?');
                         elegirGusto(gustos);
                         pago(1260);
@@ -80,8 +108,8 @@ if(compra!==productos.some()){
             }
             break;
       case '2':
-            productoIngresadoB=prompt('¿Que clase de pastel va a querer? 1.cheesecake 2.selva negra 3.pastel de frutilla.');
-            switch(productoIngresadoB){
+            compraIngresadaB=prompt('¿Que clase de pastel va a querer? 1.cheesecake 2.selva negra 3.pastel de frutilla.');
+            switch(compraIngresadaB){
                   case'1':
                   alert('el pastel cheesecake sale 2500$');
                   pago(2500);
@@ -101,17 +129,17 @@ if(compra!==productos.some()){
             break;
       case '3':
             prompt('¿Que clase de helado de agua va a querer? 1.de naranja 2.de limon 3.de frutilla.');
-            productoIngresadoC=prompt('¿Que clase de helado de agua va a querer?');
-            switch(productoIngresadoC){
-                  case'30':
+            compraIngresadaC=prompt('¿Que clase de helado de agua va a querer?');
+            switch(compraIngresadaC){
+                  case'1':
                   alert('el helado de agua de naranja sale 200$');
                   pago(200);
                   break;
-                  case'31':
+                  case'2':
                   alert('el helado de agua de limon sale 200$');
                   pago(200);
                   break;
-                  case'32':
+                  case'3':
                   alert('el helado de agua de frutilla sale 200$');
                   pago(200);
                   break;
@@ -120,7 +148,8 @@ if(compra!==productos.some()){
             }
             break;
       default:
-            alert('El producto ingresado no existe. Ingrese otro tipode producto o ingrese "FIN" para salir.');}}
+            alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.');}
+}else(alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.'))
 
 
-}while(producto!= 'FIN');
+}while(compraIngresadaB!== 'FIN');
