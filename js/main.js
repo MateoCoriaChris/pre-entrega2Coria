@@ -30,8 +30,7 @@ const carritoDeCompra = [];
 class compra {
       constructor(entrada) {
         this.productoComprado = entrada.productoComprado;
-        this.fecha = entrada.fecha;
-        this.precioDelProducto=entrada.productos.findIndex((Element) => productos) }
+        this.fecha = entrada.fecha;}
 }
 
 class item{
@@ -39,27 +38,51 @@ class item{
       this.nombreDelProducto= nombreDelProducto;
       this.precio=parseInt(precio);}}
 
-const gustos=['chocolate', 'vainilla','granizado','mascarpone','frutilla', 'dulce de leche', 'frutos del bosque', 'tiramisu'];
-elegirGusto=(gustos)=>{
-      gustoElegido=prompt('1.chocolate, 2.vainilla, 3.granizado, 4.mascarpone, 5.frutilla, 6.dulce de leche, 7.frutos del bosque, 8.tiramisu').toLocaleLowerCase
-      alert('su helado sera de'+productos.some(helados)+'.');
-}
+const helados=[(cucuruchoSimple=new item('Cucurucho Simple',300),
+                cucuruchoDoble=new item('Cucurucho Doble',380), 
+                heladoDeUnCuarto=new item('Helado de 1/4kg',420),
+                heladoDeMedio=new item('Helado de 1/2kg',780),
+                heladoDeUnKilo=new item('Helado de 1kg',1260) )]
+
 
 const productos = [
-       {helados:[(cucuruchoSimple=new item('Cucurucho Simple',300),
-                  cucuruchoDoble=new item('Cucurucho Doble',380), 
-                  heladoDeUnCuarto=new item('Helado de 1/4kg',420),
-                  heladoDeMedio=new item('Helado de 1/2kg',780),
-                  heladoDeUnKilo=new item('Helado de 1kg',1260) )]},
 
-       {pasteles:[(pastelCheesecake=new item('pastel cheesecake',2500),
-                   pastelSelvaNegra=new item('pastel selva negra',2550),
-                   pastelDeFrutilla=new item('pastel de frutilla',2450))]},
+      helados,
 
-       {heladosDeAgua:[(heladoDeAguaDeNaranja=new item('helado de agua de naranja',200),
-                        heladoDeAguaDeLimon=new item('helado de agua de limon',200),
-                        heladoDeAguaDeFrutilla=new item('helado de agua de frutilla',200))]}
+      {pasteles:[(pastelCheesecake=new item('pastel cheesecake',2500),
+      pastelSelvaNegra=new item('pastel selva negra',2550),
+      pastelDeFrutilla=new item('pastel de frutilla',2450))]},
+
+      {heladosDeAgua:[(heladoDeAguaDeNaranja=new item('helado de agua de naranja',200),
+      heladoDeAguaDeLimon=new item('helado de agua de limon',200),
+      heladoDeAguaDeFrutilla=new item('helado de agua de frutilla',200))]}
 ]
+
+
+const gustos=['chocolate', 'frutilla','granizado','mascarpone','vainilla', 'dulce de leche', 'frutos del bosque', 'tiramisu'];
+gustos.splice('mascarpone','vainilla','dulce de leche','frutos del bosque','tiramisu');
+console.log(gustos)
+
+
+elegirGusto=(gustos)=>{
+      gustoElegido=prompt('1.chocolate, 2.frutilla, 3.granizado').toLocaleLowerCase
+      saborNoValido=helado!==chocolate||frutilla||granizado;
+      do{
+      if(helado == 1){
+             alert('Su helado sera de chocolate');
+              break;
+        }else if(helado == 2){
+             alert('Su helado sera de frutilla');
+             break;
+        }else if(helado == 3){
+              alert('Su helado sera de granizado');
+              break;
+        }else{alert('El Sabor ingresado no existe. Ingrese otro numero entre 1 y 3');
+        }
+      }while(helado===saborNoValido);
+}
+
+
 const co=(productoIngresado,productos)=>{
       return productos.find(productos => productos.some().toLocaleLowerCase===productoIngresado);
 }
@@ -69,7 +92,8 @@ const co=(productoIngresado,productos)=>{
 
 
 do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.');
-productoNoValido=compraIngresada!=='1'||'2'||'3'
+compraNoValida=compraIngresada!=='1'||'2'||'3'
+const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Date()});
  switch(compraIngresada){
       case '1':
             compraIngresadaA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
