@@ -93,35 +93,35 @@ const co=(productoIngresado,productos)=>{
 
 
 
-do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.'.toLowerCase);
+do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.');
 compraNoValida=compraIngresada!=='helados'||'pasteles'||'helados de agua'
 const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Date()});
  switch(compraIngresada){
       case 'helados':
             compraIngresadaA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
             switch(compraIngresadaA){
-                  case '1':
+                  case 'cucurucho simple':
                   cucuruchoSimple=alert('el cucurucho simple sale 300$¿Que sabor va a querer en su cucurucho simple?');
                   elegirGusto(gustos);
                   pago(300);
                   break;
-                  case '2':
+                  case 'cucrucho doble':
                         cucuruchoDoble=alert('el cucrucho doble sale 380$¿Que sabor va a querer en su cucurucho doble?');
                         elegirGusto(gustos);
                         pago(380);
                         break;
-                  case '3':
+                  case 'helado de 1/4kg':
                         heladoDeUnCuarto=alert('el helado de 1/4kg sale 420$¿Que sabor va a querer en su Helado de 1/4?');
                         elegirGusto(gustos);
                         pago(420);
                         break;
-                  case '4':
+                  case 'helado de 1/2kg':
                         heladoDeMedio=alert('el helado de 1/2kg sale 780$¿Que sabor va a querer en su Helado de 1/2kg?');
                         elegirGusto(gustos);
                         pago(780);
                         break;
-                  case '5':
-                        heladoDeUnKilo=prompt('el helado de 1kg sale 1260$¿Que sabor va a querer en su helado de 1kg?');
+                  case 'helado de 1kg':
+                        heladoDeUnKilo=alert('el helado de 1kg sale 1260$¿Que sabor va a querer en su helado de 1kg?');
                         elegirGusto(gustos);
                         pago(1260);
                         break;
@@ -130,17 +130,17 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
             }
             break;
       case 'pasteles':
-            compraIngresadaB=prompt('¿Que clase de pastel va a querer? 1.cheesecake 2.selva negra 3.pastel de frutilla.');
+            compraIngresadaB=prompt('¿Que clase de pastel va a querer? 1.cheesecake 2.selva negra 3.de frutilla.');
             switch(compraIngresadaB){
-                  case'1':
+                  case'cheesecake':
                   alert('el pastel cheesecake sale 2500$');
                   pago(2500);
                   break;
-                  case'2':
+                  case'selva negra':
                   alert('el pastel selva negra sale 2550$');
                   pago(2550);
                   break;
-                  case'3':
+                  case'de frutilla':
                   alert('el pastel de frutilla sale 2450$');
                   pago(2450);
                   break;
@@ -150,18 +150,17 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
 
             break;
       case 'helados de agua':
-            prompt('¿Que clase de helado de agua va a querer? 1.de naranja 2.de limon 3.de frutilla.');
-            compraIngresadaC=prompt('¿Que clase de helado de agua va a querer?');
+            compraIngresadaC=prompt('¿Que clase de helado de agua va a querer? 1.de naranja 2.de limon 3.de frutilla.');
             switch(compraIngresadaC){
-                  case'1':
+                  case'de naranja':
                   alert('el helado de agua de naranja sale 200$');
                   pago(200);
                   break;
-                  case'2':
+                  case'de limon':
                   alert('el helado de agua de limon sale 200$');
                   pago(200);
                   break;
-                  case'3':
+                  case'de frutilla':
                   alert('el helado de agua de frutilla sale 200$');
                   pago(200);
                   break;
@@ -173,4 +172,4 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
             alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.');}
 carritoDeCompra.push(nuevaCompra)
 prompt (+'')
-}while(compraIngresada!== 0);
+}while(compraIngresada===compraNoValida);
