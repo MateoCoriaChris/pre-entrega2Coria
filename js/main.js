@@ -25,7 +25,7 @@ pago=(precioDelProducto)=>{
 }
 
 
-const carritoDeCompra = [];
+
 
 class compra {
       constructor(entrada) {
@@ -44,6 +44,8 @@ const helados=[(cucuruchoSimple=new item('Cucurucho Simple',300),
                 heladoDeMedio=new item('Helado de 1/2kg',780),
                 heladoDeUnKilo=new item('Helado de 1kg',1260) )]
 
+
+const carritoDeCompra= [];                
 
 const productos = [
 
@@ -65,21 +67,21 @@ console.log(gustos)
 
 
 elegirGusto=(gustos)=>{
-      gustoElegido=prompt('1.chocolate, 2.frutilla, 3.granizado').toLocaleLowerCase
-      saborNoValido=helado!==chocolate||frutilla||granizado;
+      gustoElegido=prompt('1.chocolate, 2.frutilla, 3.granizado')
+      saborNoValido=gustoElegido!=='1'||'2'||'3';
       do{
-      if(helado == 1){
+      if(gustoElegido === '1'){
              alert('Su helado sera de chocolate');
               break;
-        }else if(helado == 2){
+        }else if(gustoElegido == '2'){
              alert('Su helado sera de frutilla');
              break;
-        }else if(helado == 3){
+        }else if(gustoElegido == '3'){
               alert('Su helado sera de granizado');
               break;
-        }else{alert('El Sabor ingresado no existe. Ingrese otro numero entre 1 y 3');
-        }
-      }while(helado===saborNoValido);
+        }else(alert('El Sabor ingresado no existe. Ingrese otro numero entre 1 y 3'));
+        
+      }while(gustoElegido!==saborNoValido);
 }
 
 
@@ -169,5 +171,6 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
             break;
       default:
             alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.');}
-
-}while(compraIngresada!== 'FIN');
+carritoDeCompra.push(nuevaCompra)
+prompt (+'')
+}while(compraIngresada!== 0);
