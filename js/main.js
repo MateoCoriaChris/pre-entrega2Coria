@@ -93,11 +93,11 @@ const co=(productoIngresado,productos)=>{
 
 
 
-do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.');
-compraNoValida=compraIngresada!=='1'||'2'||'3'
+do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.'.toLowerCase);
+compraNoValida=compraIngresada!=='helados'||'pasteles'||'helados de agua'
 const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Date()});
  switch(compraIngresada){
-      case '1':
+      case 'helados':
             compraIngresadaA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
             switch(compraIngresadaA){
                   case '1':
@@ -129,7 +129,7 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
                         alert('El helado ingresado no existe. Ingrese otro tipo de helado');
             }
             break;
-      case '2':
+      case 'pasteles':
             compraIngresadaB=prompt('¿Que clase de pastel va a querer? 1.cheesecake 2.selva negra 3.pastel de frutilla.');
             switch(compraIngresadaB){
                   case'1':
@@ -149,7 +149,7 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
             }
 
             break;
-      case '3':
+      case 'helados de agua':
             prompt('¿Que clase de helado de agua va a querer? 1.de naranja 2.de limon 3.de frutilla.');
             compraIngresadaC=prompt('¿Que clase de helado de agua va a querer?');
             switch(compraIngresadaC){
