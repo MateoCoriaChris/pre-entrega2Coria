@@ -1,6 +1,7 @@
 bienvenidos=()=>{
     alert('bienvenidos a  la Heladeria Hogar.');
 }
+const carritoDeCompra= []; 
 
 pago=(precioDelProducto)=>{
       formaDePago=prompt('¿como desea pagar? 1.efectivo 2.tarjeta de credito 3.tarjeta de debito');
@@ -8,25 +9,27 @@ pago=(precioDelProducto)=>{
             case '1':
                   efectivo=1;
                   alert('el total a pagar es '+precioDelProducto*efectivo+'$.');
+                  pagoConEfectivo=efectivo*precioDelProducto
+                  carritoDeCompra.push(pagoConEfectivo);
                   break;
             case '2':
                   tarjetaDeCredito=1.30;
                   alert('los pagos con tarjeta de credito tienen un 30% de recargo.');
                   alert('el total a pagar es '+precioDelProducto*tarjetaDeCredito+'$.');
+                  pagoConTarjetaDeCredito=tarjetaDeCredito*precioDelProducto
+                  carritoDeCompra.push(pagoConTarjetaDeCredito);
                   break;
             case '3':
                   tarjetaDeDebito=1.10;
                   alert('los pagos con tarjeta de debito tienen un 10% de recargo.');
                   alert('el total a pagar es '+precioDelProducto*tarjetaDeDebito+'$.');
+                  pagoConTarjetaDeDebito=tarjetaDeDebito*precioDelProducto
+                  carritoDeCompra.push(pagoConTarjetaDeDebito);
                   break;
             default:
                   alert('forma de pago no valida, ingrese otro metodo.');     
       }
 }
-
-
-
-
 class compra {
       constructor(entrada) {
         this.productoComprado = entrada.productoComprado;
@@ -45,7 +48,7 @@ const helados=[(cucuruchoSimple=new item('Cucurucho Simple',300),
                 heladoDeUnKilo=new item('Helado de 1kg',1260) )]
 
 
-const carritoDeCompra= [];                
+               
 
 const productos = [
 
@@ -68,18 +71,18 @@ console.log(gustos)
 
 elegirGusto=(gustos)=>{
       gustoElegido=prompt('1.chocolate, 2.frutilla, 3.granizado')
-      saborNoValido=gustoElegido!=='1'||'2'||'3';
+      saborNoValido=gustoElegido!=='chocolate'||'frutilla'||'granizado';
       do{
-      if(gustoElegido === '1'){
+      if(gustoElegido === 'chocolate'){
              alert('Su helado sera de chocolate');
               break;
-        }else if(gustoElegido == '2'){
+        }else if(gustoElegido == 'frutilla'){
              alert('Su helado sera de frutilla');
              break;
-        }else if(gustoElegido == '3'){
+        }else if(gustoElegido == 'granizado'){
               alert('Su helado sera de granizado');
               break;
-        }else(alert('El Sabor ingresado no existe. Ingrese otro numero entre 1 y 3'));
+        }else(alert('El Sabor ingresado no existe. Ingrese otro sabor.'));
         
       }while(gustoElegido!==saborNoValido);
 }
@@ -171,5 +174,6 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
       default:
             alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.');}
 carritoDeCompra.push(nuevaCompra)
-prompt (+'')
+alert (nuevaCompra+carritoDeCompra)
 }while(compraIngresada===compraNoValida);
+
