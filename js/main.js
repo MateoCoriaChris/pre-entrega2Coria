@@ -66,7 +66,7 @@ const productos = [
 
 const gustos=['chocolate', 'frutilla','granizado','mascarpone','vainilla', 'dulce de leche', 'frutos del bosque', 'tiramisu'];
 gustos.splice('mascarpone','vainilla','dulce de leche','frutos del bosque','tiramisu');
-console.log(gustos)
+
 
 
 elegirGusto=(gustos)=>{
@@ -88,18 +88,9 @@ elegirGusto=(gustos)=>{
 }
 
 
-const co=(productoIngresado,productos)=>{
-      return productos.find(productos => productos.some().toLocaleLowerCase===productoIngresado);
-}
-
-
-
-
-
 do{compraIngresada=prompt('¿Que se les ofrece? 1.helados  2.pasteles  3.helados de agua. ingrese "FIN" para salir.');
 compraNoValida=compraIngresada!=='helados'||'pasteles'||'helados de agua'
-const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Date()});
- switch(compraIngresada){
+switch(compraIngresada){
       case 'helados':
             compraIngresadaA=prompt('¿Que clase de helado va a querer? 1.cucurucho simple   2.cucrucho doble   3.helado de 1/4kg   4.helado de 1/2kg   5.helado de 1kg.');
             switch(compraIngresadaA){
@@ -173,7 +164,5 @@ const nuevaCompra= new compra({ productoComprado: compraIngresada, fecha: new Da
             break;
       default:
             alert('El producto ingresado no existe. Ingrese otro tipo de producto o ingrese "FIN" para salir.');}
-carritoDeCompra.push(nuevaCompra)
-alert (nuevaCompra+carritoDeCompra)
 }while(compraIngresada===compraNoValida);
 
